@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manager</title>
+</head>
+<body>
+<p>Panel Pracownika</p>
+
+<form name="f" th:action="@{/owner}" method="get">
+    <button type="submit" class="btn">Okno Wlasciciela</button>
+</form>
+
+<form name="f" th:action="@{/manager}" method="get">
+    <button type="submit" class="btn">Okno Kierownika</button>
+</form>
+
+</body>
+</html>

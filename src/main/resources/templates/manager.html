@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Panel Kierownika</p>
+<table>
+    <tr>
+        <th>id</th>
+        <th>login</th>
+        <th>password</th>
+        <th>role</th>
+    </tr>
+    <tr th:each="worker: ${workers}">
+        <td th:text="${worker.id}"/>
+        <td th:text="${worker.login}"/>
+        <td th:text="${worker.password}"/>
+        <td th:text="${worker.role}"/>
+    </tr>
+</table>
+<p>Lista produktów</p>
+<table>
+    <tr>
+        <th>ean</th>
+        <th>price</th>
+        <th>number</th>
+        <th>describe</th>
+    </tr>
+    <tr th:each="product: ${products}">
+        <td th:text="${product.ean}"/>
+        <td th:text="${product.price}"/>
+        <td th:text="${product.number}"/>
+        <td th:text="${product.describe}"/>
+    </tr>
+</table>
+</body>
+</html>
