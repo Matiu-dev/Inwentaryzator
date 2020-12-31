@@ -8,6 +8,7 @@
 </head>
 <body>
 <p>Zaloguj sie</p>
+
 <form name="f" th:action="@{/login}" method="post">
     <fieldset>
         <div th:if="${param.error}" >Bledny login lub haslo</div>

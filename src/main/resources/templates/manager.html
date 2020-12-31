@@ -6,6 +6,9 @@
 </head>
 <body>
 <p>Panel Kierownika</p>
+<!--<input type="text" th:value="${myWorker.login}">-->
+<p>Witaj: <span th:text="${myWorker.login}"></span></p>
+<p>Masz role: <span th:text="${myWorker.role}"></span></p>
 <table>
     <tr>
         <th>id</th>
@@ -35,5 +38,12 @@
         <td th:text="${product.describe}"/>
     </tr>
 </table>
+
+<form name="f" th:action="@{/logout}" method="post">
+
+    <button type="submit" class="btn">Wyloguj</button>
+
+</form>
+
 </body>
 </html>

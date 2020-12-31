@@ -1,4 +1,4 @@
-package pl.io2.inwentaryzator.user;
+package pl.io2.inwentaryzator.worker;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 //po zalogowaniu
 @Controller
-public class IndexController {
+public class WorkerController {
 
     @GetMapping("/")
     public String index(){
-        return "index";
+        return "worker";
     }
 
 

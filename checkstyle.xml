@@ -1,0 +1,165 @@
+<!DOCTYPE module PUBLIC
+  "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+  "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+	<property name="charset" value="UTF-8"/>
+	<property name="tabWidth" value="4"/>
+    <module name="TreeWalker">
+
+<!-- Annotations-->
+
+        <module name="AnnotationLocation"/>
+        <module name="MissingOverride">
+            <property name="severity" value="warning" />
+        </module>
+
+<!-- Block Checks-->
+
+        <module name="EmptyBlock">
+            <property name="option" value="TEXT"/>
+            <property name="tokens" value="LITERAL_TRY, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE,
+                                           LITERAL_SWITCH"/>
+        </module>
+        <module name="LeftCurly">
+            <property name="ignoreEnums" value="false"/>
+        </module>
+        <module name="NeedBraces">
+            <property name="tokens" value="LITERAL_IF, LITERAL_ELSE, LITERAL_DO, LITERAL_FOR,
+                                           LITERAL_WHILE"/>
+        </module>
+        <module name="RightCurly">
+            <property name="tokens" value="LITERAL_TRY, LITERAL_CATCH, LITERAL_FINALLY, LITERAL_IF,
+                                           LITERAL_DO"/>
+        </module>
+
+<!-- Class Design-->
+
+        <module name="InnerTypeLast"/>
+
+<!-- Coding-->
+
+        <module name="OneStatementPerLine"/>
+        <module name="PackageDeclaration"/>
+
+<!-- Imports-->
+
+        <module name="AvoidStarImport">
+            <property name="severity" value="warning" />
+        </module>
+        <module name="ImportOrder">
+            <property name="groups" value="/^java\./,javax,org,it.arcade.hospital"/>
+            <property name="ordered" value="true"/>
+            <property name="separated" value="true"/>
+            <property name="option" value="above"/>
+            <property name="sortStaticImportsAlphabetically" value="true"/>
+        </module>
+        <module name="UnusedImports"/>
+
+<!-- Javadoc Comments-->
+<!--
+        <module name="InvalidJavadocPosition"/>
+        <module name="JavadocMethod">
+            <property name="scope" value="public"/>
+            <property name="allowMissingParamTags" value="true"/>
+            <property name="allowMissingReturnTag" value="true"/>
+            <property name="allowedAnnotations" value="Override, Test"/>
+            <property name="tokens" value="METHOD_DEF"/>
+            <property name="validateThrows" value="true"/>
+            <property name="severity" value="warning" />
+        </module>
+        <module name="JavadocMissingWhitespaceAfterAsterisk">
+            <property name="severity" value="warning" />
+        </module>
+        <module name="MissingJavadocMethod">
+            <property name="scope" value="public"/>
+            <property name="allowedAnnotations" value="Override, Test, Deprecated"/>
+            <property name="allowMissingPropertyJavadoc" value="true"/>
+            <property name="tokens" value="METHOD_DEF"/>
+            <property name="severity" value="warning" />
+        </module>
+-->
+
+<!-- Miscellaneous-->
+
+        <module name="ArrayTypeStyle"/>
+        <module name="CommentsIndentation"/>
+        <module name="Indentation">
+            <property name="forceStrictCondition" value="true" />
+            <property name="severity" value="warning" />
+        </module>
+        <module name="OuterTypeFilename"/>
+
+<!-- Naming Conventions-->
+
+        <module name="AbstractClassName"/>
+        <module name="ConstantName">
+            <property name="format" value="^log(ger)?$|^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$"/>
+        </module>
+        <module name="ClassTypeParameterName">
+            <property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
+        </module>
+        <module name="MethodTypeParameterName">
+            <property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
+        </module>
+        <module name="InterfaceTypeParameterName">
+            <property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
+        </module>
+        <module name="LambdaParameterName"/>
+        <module name="LocalVariableName">
+            <property name="format" value="^[a-z](_?[a-zA-Z0-9]+)*$"/>
+        </module>
+        <module name="MemberName"/>
+        <module name="MethodName">
+            <property name="format" value="^[a-z](_?[a-zA-Z0-9]+)*$"/>
+            <property name="allowClassName" value="false"/>
+        </module>
+        <module name="ParameterName">
+            <property name="format" value="^[a-z][_a-zA-Z0-9]+$"/>
+            <property name="ignoreOverridden" value="true"/>
+        </module>
+        <module name="StaticVariableName">
+            <property name="format" value="^[a-z](_?[a-zA-Z0-9]+)*$"/>
+        </module>
+
+<!-- Whitspace-->
+
+        <module name="EmptyLineSeparator">
+            <property name="allowNoEmptyLineBetweenFields" value="true"/>
+        </module>
+        <module name="GenericWhitespace"/>
+        <module name="MethodParamPad"/>
+        <module name="NoWhitespaceBefore">
+            <property name="allowLineBreaks" value="true"/>
+        </module>
+        <module name="ParenPad"/>
+        <module name="WhitespaceAround">
+            <property name="tokens" value="ASSIGN, DIV_ASSIGN,PLUS_ASSIGN, MINUS_ASSIGN,
+                                           STAR_ASSIGN, MOD_ASSIGN, SR_ASSIGN, BSR_ASSIGN,
+                                           SL_ASSIGN, BXOR_ASSIGN, BOR_ASSIGN, BAND_ASSIGN"/>
+        </module>
+    </module>
+
+
+
+<!-- Miscellaneous-->
+
+    <module name="NewlineAtEndOfFile"/>
+    <module name="OrderedProperties"/>
+
+<!-- Size Violations-->
+
+    <module name="FileLength">
+  		<property name="max" value="5000"/>
+	</module>
+	<module name="LineLength">
+    	<property name="fileExtensions" value="java"/>
+    	<property name="max" value="120"/>
+  	</module>
+
+<!-- Whitspace-->
+
+  	<module name="FileTabCharacter">
+    	<property name="eachLine" value="true"/>
+  	</module>
+</module>

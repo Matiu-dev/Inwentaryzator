@@ -1,14 +1,18 @@
 package pl.io2.inwentaryzator.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.parameters.P;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import pl.io2.inwentaryzator.product.Product;
+import org.springframework.web.bind.annotation.RequestParam;
 import pl.io2.inwentaryzator.product.ProductService;
-import pl.io2.inwentaryzator.user.WorkerService;
+import pl.io2.inwentaryzator.worker.Worker;
+import pl.io2.inwentaryzator.worker.WorkerService;
 
-import java.util.List;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class ManagerController {
@@ -19,11 +23,21 @@ public class ManagerController {
     @Autowired
     private WorkerService workerService;
 
+    private Worker myWorker;
+
     @GetMapping("/manager")
     public String manager(Model model){
 
         model.addAttribute("products", productService.findAllProducts());
         model.addAttribute("workers", workerService.findAllWorkers());
+
+        Object worker = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(worker instanceof UserDetails){
+            myWorker = new Worker(((UserDetails) worker).getUsername(), ((UserDetails) worker).getPassword(), ((UserDetails) worker).getAuthorities().toString());
+        }else {
+            //To-Do
+        }
+        model.addAttribute("myWorker", myWorker);
 
         return "manager";
     }

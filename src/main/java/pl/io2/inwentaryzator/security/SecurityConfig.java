@@ -13,19 +13,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http
-//                .authorizeRequests()
-//                .anyRequest().authenticated()
-//                .and()
-//                .formLogin()
-//                .loginPage("/login")
-//                .permitAll();
-//    }
-
     @Autowired
     UserDetailsService userDetailsService;
+
+    @Autowired
+    private MySimpleUrlAuthenticationSuccessHandler successHandler;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
@@ -37,9 +29,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/owner").hasRole("OWNER")
                 .antMatchers("/manager").hasRole("MANAGER")
-                .antMatchers("/").hasAnyRole("WORKER", "MANAGER", "OWNER")
-                .and().formLogin().loginPage("/login").permitAll();
+                .antMatchers("/").hasAnyRole("WORKER")
+                .antMatchers("/logout").hasAnyRole("WORKER", "MANAGER", "OWNER")
+                .and().formLogin().successHandler(successHandler)
+                .loginPage("/login").permitAll()
+                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/login");
     }
+
 
     @Bean
     public PasswordEncoder getPasswordEncoder(){

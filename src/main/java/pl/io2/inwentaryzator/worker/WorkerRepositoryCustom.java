@@ -1,9 +1,4 @@
-package pl.io2.inwentaryzator.user;
-
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-
-import java.util.List;
+package pl.io2.inwentaryzator.worker;
 
 public interface WorkerRepositoryCustom {
 //

@@ -16,6 +16,8 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<checkstyle.version>3.0.0</checkstyle.version>
+		<build.tools.location>${project.build.directory}/buildtools</build.tools.location>
 	</properties>
 
 	<dependencies>
@@ -87,7 +89,50 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+<!--			checkstyle-->
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-checkstyle-plugin</artifactId>-->
+<!--				<version>${checkstyle.version}</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<id>checkstyle</id>-->
+<!--						<phase>validate</phase>-->
+<!--						<goals>-->
+<!--							<goal>check</goal>-->
+<!--						</goals>-->
+<!--						<configuration>-->
+<!--							&lt;!&ndash; sun_checks.xml is the default and hence no need to explicitly mention. &ndash;&gt;-->
+<!--							<configLocation>${build.tools.location}/checkstyle/checkstyle.xml</configLocation>-->
+<!--							<suppressionsLocation>${build.tools.location}/checkstyle/suppressions.xml-->
+<!--							</suppressionsLocation>-->
+<!--							<includeTestSourceDirectory>true</includeTestSourceDirectory>-->
+<!--							&lt;!&ndash; Used failOnViolation to log errors on console &ndash;&gt;-->
+<!--							&lt;!&ndash; See https://maven.apache.org/plugins/maven-checkstyle-plugin/check-mojo.html &ndash;&gt;-->
+<!--							<failOnViolation>true</failOnViolation>-->
+<!--							<violationSeverity>error</violationSeverity>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
 		</plugins>
 	</build>
+
+<!--	<reporting>-->
+<!--		<plugins>-->
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-checkstyle-plugin</artifactId>-->
+<!--				<version>${checkstyle.version}</version>-->
+<!--				<reportSets>-->
+<!--					<reportSet>-->
+<!--						<reports>-->
+<!--							<report>checkstyle</report>-->
+<!--						</reports>-->
+<!--					</reportSet>-->
+<!--				</reportSets>-->
+<!--			</plugin>-->
+<!--		</plugins>-->
+<!--	</reporting>-->
 
 </project>
