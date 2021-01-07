@@ -47,13 +47,13 @@
         <module name="AvoidStarImport">
             <property name="severity" value="warning" />
         </module>
-        <module name="ImportOrder">
-            <property name="groups" value="/^java\./,javax,org,it.arcade.hospital"/>
-            <property name="ordered" value="true"/>
-            <property name="separated" value="true"/>
-            <property name="option" value="above"/>
-            <property name="sortStaticImportsAlphabetically" value="true"/>
-        </module>
+<!--        <module name="ImportOrder">-->
+<!--            <property name="groups" value="/^java\./,javax,org,pl.io2.inwentaryzator"/>-->
+<!--            <property name="ordered" value="true"/>-->
+<!--            <property name="separated" value="true"/>-->
+<!--            <property name="option" value="above"/>-->
+<!--&lt;!&ndash;            <property name="sortStaticImportsAlphabetically" value="true"/>&ndash;&gt;-->
+<!--        </module>-->
         <module name="UnusedImports"/>
 
 <!-- Javadoc Comments-->

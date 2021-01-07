@@ -17,7 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     UserDetailsService userDetailsService;
 
     @Autowired
-    private MySimpleUrlAuthenticationSuccessHandler successHandler;
+    private WorkerUrlAuthenticationSuccessHandler successHandler;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/owner").hasRole("OWNER")
                 .antMatchers("/manager").hasRole("MANAGER")
-                .antMatchers("/").hasAnyRole("WORKER")
+                .antMatchers("/").hasRole("WORKER")
                 .antMatchers("/logout").hasAnyRole("WORKER", "MANAGER", "OWNER")
                 .and().formLogin().successHandler(successHandler)
                 .loginPage("/login").permitAll()

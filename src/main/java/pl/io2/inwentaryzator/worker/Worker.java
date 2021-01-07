@@ -1,32 +1,36 @@
 package pl.io2.inwentaryzator.worker;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.RequiredArgsConstructor;
-
-import javax.persistence.*;
 
 
 @RequiredArgsConstructor
 @Entity
-@Table(name="worker")
+@Table(name = "worker")
 public class Worker {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
 
-    @Column(name="login")
+    @Column(name = "login")
     private String login;
 
-    @Column(name="password")
+    @Column(name = "password")
     private String password;
 
-    @Column(name="role")
+    @Column(name = "role")
     private String role;
 
     public Worker(String login, String password, String role) {
-        this.id=id;
+        this.id = id;
         this.login = login;
         this.password = password;
         this.role = role;

@@ -1,17 +1,18 @@
 package pl.io2.inwentaryzator.security;
 
+import java.util.Optional;
+
+import pl.io2.inwentaryzator.worker.Worker;
+import pl.io2.inwentaryzator.worker.WorkerRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import pl.io2.inwentaryzator.worker.Worker;
-import pl.io2.inwentaryzator.worker.WorkerRepository;
-
-import java.util.Optional;
 
 @Service
-public class MyUserDetailsService implements UserDetailsService {
+public class WorkerDetailsService implements UserDetailsService {
 
     @Autowired
     WorkerRepository workerRepository;
@@ -22,6 +23,6 @@ public class MyUserDetailsService implements UserDetailsService {
 
         workers.orElseThrow(() -> new UsernameNotFoundException("Not found: " + s));
 
-        return workers.map(MyUserDetails::new).get();
+        return workers.map(WorkerDetails::new).get();
     }
 }

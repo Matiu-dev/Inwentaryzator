@@ -2,24 +2,27 @@ package pl.io2.inwentaryzator.product;
 
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @RequiredArgsConstructor
 @Entity
-@Table(name="product")
+@Table(name = "product")
 public class Product {
 
     @Id
-    @Column(name="ean")
+    @Column(name = "ean")
     private Long ean;
 
-    @Column(name="price")
+    @Column(name = "price")
     private double price;
 
-    @Column(name="number")
+    @Column(name = "number")
     private int number;
 
-    @Column(name="describe")
+    @Column(name = "describe")
     private String describe;
 
     public Long getEan() {

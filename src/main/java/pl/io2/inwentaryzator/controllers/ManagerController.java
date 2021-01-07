@@ -1,18 +1,15 @@
 package pl.io2.inwentaryzator.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.parameters.P;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import pl.io2.inwentaryzator.product.ProductService;
 import pl.io2.inwentaryzator.worker.Worker;
 import pl.io2.inwentaryzator.worker.WorkerService;
 
-import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ManagerController {
@@ -33,7 +30,9 @@ public class ManagerController {
 
         Object worker = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if(worker instanceof UserDetails){
-            myWorker = new Worker(((UserDetails) worker).getUsername(), ((UserDetails) worker).getPassword(), ((UserDetails) worker).getAuthorities().toString());
+            myWorker = new Worker(((UserDetails) worker).getUsername(),
+                    ((UserDetails) worker).getPassword(),
+                    ((UserDetails) worker).getAuthorities().toString());
         }else {
             //To-Do
         }
